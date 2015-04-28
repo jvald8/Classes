@@ -5,18 +5,18 @@ var b = 3;
 
 describe('calc', function(){
   it('should add both parameters', function(){
-    expect(calc.add(a,b)).to.eql(a+b)
+    expect(calc.add(a,b)).to.eql(a+b);
   });
   it('should subtract the second parameter from the first', function(){
-    expect(calc.subtract(a,b)).to.eql(a-b)
+    expect(calc.subtract(a,b)).to.eql(a-b);
   });
   it('should multiply parameters', function(){
-    expect(calc.multiply(a,b)).to.eql(a*b)
+    expect(calc.multiply(a,b)).to.eql(a*b);
   });
   it('should divide the first parameter by the second', function(){
-    expect(calc.divide(a,b)).to.eql(a/b)
+    expect(calc.divide(a,b)).to.eql(a/b);
   });
-})
+});
 
 /*describe('calc', function(){
   it('should add both parameters', function(){
