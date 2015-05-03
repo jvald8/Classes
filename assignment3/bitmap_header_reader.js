@@ -14,7 +14,7 @@ exports.transform = function(data, callback) {
 
 exports.invertColors = function(data) {
 
-  var bitmapObject = {};
+  var bitmapObject = data;
 
   bitmapObject.headerSize = 14;
   bitmapObject.type = data.toString('utf-8', 0, 2);
@@ -48,20 +48,20 @@ exports.invertColors = function(data) {
     bitmapObject.palette[i].alpha = 255 - bitmapObject.palette[i].alpha;
   }
 
-  // Load data into the bitmapObject
+  // Load data into the original bitmap file
   var j = startOfPalette;
   for (i = 0;i < bitmapObject.palette.length;i++) {
-    data.writeUInt8(bitmapObject.palette[i].blue, j);
-    data.writeUInt8(bitmapObject.palette[i].green, j + 1);
-    data.writeUInt8(bitmapObject.palette[i].red, j + 2);
-    data.writeUInt8(bitmapObject.palette[i].alpha, j + 3);
+    bitmapObject.writeUInt8(bitmapObject.palette[i].blue, j);
+    bitmapObject.writeUInt8(bitmapObject.palette[i].green, j + 1);
+    bitmapObject.writeUInt8(bitmapObject.palette[i].red, j + 2);
+    bitmapObject.writeUInt8(bitmapObject.palette[i].alpha, j + 3);
     j = j + 4;
   }
 
-  fs.writeFileSync('transformedFile.bmp', data);
+  fs.writeFileSync('transformedFile.bmp', bitmapObject, 'binary');
 
   exports.bitmapObject = bitmapObject;
 };
 
-/* This is for debugging from within this file. this.transform
-(bitmap, this.invertColors);*/
+
+// Testing the transform functino : this.transform(bitmap, this.invertColors);
