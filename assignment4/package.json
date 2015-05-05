@@ -1,0 +1,24 @@
+{
+  "name": "vanillaNodeServer",
+  "version": "1.0.0",
+  "description": "vanilla node server",
+  "main": "server_test.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "vanilla",
+    "http",
+    "server",
+    "node",
+  ],
+  "author": "Jon Ringvald",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "chai-http": "^1.0.0",
+    "grunt": "^0.4.5",
+    "grunt-simple-mocha": "^0.4.0",
+    "mocha": "^2.2.4"
+  }
+}
