@@ -84,4 +84,15 @@ describe('server', function() {
       done();
     });
   });
+  it('should update first objects name to patchedNote', function(done) {
+    chai
+    .request('http://localhost:3001')
+    .patch('/notes/1')
+    .send({'id': 1, 'name': 'patchedNote'})
+    .end(
+      function(err, response) {
+      expect(response.body.name).to.be.eql('patchedNote');
+      done();
+    });
+  });
 });
