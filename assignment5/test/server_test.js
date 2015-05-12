@@ -24,7 +24,7 @@ describe('server', function() {
       done();
     });
   });
-  it('should write out a POST request to the notes page', function(done) {
+  it('should return 200 code from post', function(done) {
     chai
     .request('http://localhost:3001')
     .post('/notes')
