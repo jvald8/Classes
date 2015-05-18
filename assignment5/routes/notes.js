@@ -104,6 +104,21 @@ exports.deleteNote = function(request, response) {
   });
 }
 
+exports.findByUsername = function(request, callback) {
+  console.log(request);
+  console.log('Getting username ' + request);
+  var username = request;
+
+  db.collection('users', function(err, collection) {
+    collection.findOne({'username':username}, function(err, user) {
+      console.log(JSON.stringify(user));
+      console.log(user);
+      callback(null, user);
+    });
+  });
+};
+
+
 /*populates a database if there isn't any*/
 var populateDb = function() {
   var notes = [

@@ -5,16 +5,9 @@ var expect = chai.expect;
 
 chai.use(chaiHttp);
 
+
+
 describe('server', function() {
-  it('should return an ok code echoed back from the homepage', function(done) {
-    chai
-    .request('http://localhost:3001')
-    .get('/')
-    .end(function(err, response) {
-      expect(response).to.have.status(200);
-      done();
-    });
-  });
   it('should return an ok code echoed back from /notes/1', function(done) {
     chai
     .request('http://localhost:3001')
@@ -94,5 +87,20 @@ describe('server', function() {
       expect(response.body.name).to.be.eql('patchedNote');
       done();
     });
+  });
+  it('should post username/password to agent,return user get', function(done) {
+    var agent = chai.request.agent('http://localhost:3001');
+    agent
+    .post('/login')
+    .send({'username': 'Jon', 'password': 'miguel'})
+    .then(function(res) {
+      expect(res).to.have.cookie('sessionid');
+      return agent.get('/')
+        .then(function(res) {
+          expect(res.body).to.be.eql('Hello There: Jon');
+          done();
+        });
+    });
+    done();
   });
 });
