@@ -1,0 +1,28 @@
+{
+  "name": "assignment6",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jvald8/CodeFellows",
+  "authors": [
+    "Jon Ringvald <jvald8@gmail.com>"
+  ],
+  "description": "adding angular to existing resou",
+  "main": "server.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "adding",
+    "angular",
+    "to",
+    "existing",
+    "resource"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
