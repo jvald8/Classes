@@ -5,7 +5,7 @@ app.controller('FirstController', ['$scope', '$http', function($scope, $http) {
 
   $scope.updatedName = '';
 
-  $http.get('http://localhost:3001/notes')
+  $http.get('/notes')
   .success(function(data, status, headers, config) {
     $scope.notes = data;
   })
@@ -14,7 +14,7 @@ app.controller('FirstController', ['$scope', '$http', function($scope, $http) {
   });
 
   $scope.addNote = function() {
-    $http.post('http://localhost:3001/notes', {"id":$scope.notes.length,"name":$scope.noteName})
+    $http.post('/notes', {"id":$scope.notes.length,"name":$scope.noteName})
     .success(function(data, status, headers, config) {
       $scope.notes.push(data);
     })
@@ -24,8 +24,7 @@ app.controller('FirstController', ['$scope', '$http', function($scope, $http) {
   };
 
   $scope.removeNote = function(note) {
-    window.alert(note.id);
-    $http.delete('http://localhost:3001/notes/' + note.id)
+    $http.delete('/notes/' + note.id)
     .success(function(data, status, headers, config) {
       $scope.notes.splice($scope.notes.indexOf(note), 1);
     })
@@ -33,12 +32,10 @@ app.controller('FirstController', ['$scope', '$http', function($scope, $http) {
       throw new Error('delete error!');
     });
   };
-  // still working through this one.
-  $scope.updateNote = function(note) {
-    window.alert(note.updatedName);
-    $http.put('http://localhost:3001/notes/' + note.id, {"id":note.id,"name":note.updatedName})
-    .success(function(data, status, headers, config) {
 
+  $scope.updateNote = function(note) {
+    $http.put('/notes/' + note.id, {"id":note.id,"name":note.updatedName})
+    .success(function(data, status, headers, config) {
       note.name = note.updatedName;
     })
     .error(function(data, status, headers, config) {

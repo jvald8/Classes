@@ -18,6 +18,7 @@ module.exports = function(config) {
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'spec/**/*[sS]pec.js',
+      'build/scripts/app-bundle.js'
     ],
 
 
@@ -57,7 +58,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'PhantomJS'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
