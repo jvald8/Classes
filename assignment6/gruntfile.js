@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       },
     },
     simplemocha: {
-      src: ['test/*.js'],
+      src: ['test/*.js','*_test.js'],
     },
     watch: {
       scripts: {
@@ -32,13 +32,13 @@ module.exports = function(grunt) {
     browserify: {
       dist: {
         files: {
-          'build/scripts/app-bundle.js': ['./src/scripts/*.js' ]
+          'build/scripts/app-bundle.js': ['./src/scripts/*.js'],
         },
       },
     },
     bower: {
     install: {
-       //just run 'grunt bower:install' and you'll see files from your Bower packages in lib directory
+
     },
   },
   });
